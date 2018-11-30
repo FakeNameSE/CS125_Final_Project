@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">TrumpCat</string>
+    <string name="imageViewDesc">TrumpCat</string>
+    <string name="button">Send!</string>
+    <string name="statusText">Send away!</string>
+    <string name="phoneHint">Phone number</string>
 </resources>
