@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
             Manifest.permission.SEND_SMS};
     private TextView tv1 = null;
     private static final String TAG = "TrumpCat";
-
+  
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         checkPermissions();
@@ -144,7 +144,7 @@ public class MainActivity extends AppCompatActivity {
             Log.d(TAG, "Catch block in startAPICall");
             throw e;
         }
-
+      
     }
 
     private void catAPI() {
