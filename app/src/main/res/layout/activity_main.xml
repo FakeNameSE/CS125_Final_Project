@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@drawable/american_flag"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
@@ -24,6 +25,8 @@
         android:id="@+id/phoneNumber"
         android:maxLength="13"
         android:hint="@string/phoneHint"
+        android:textStyle="bold"
+        android:textSize="21dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
@@ -48,6 +51,8 @@
 
     <TextView
         android:id="@+id/statusText"
+        android:textStyle="bold"
+        android:textSize="18dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
