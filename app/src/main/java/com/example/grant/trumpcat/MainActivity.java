@@ -30,16 +30,6 @@ import java.util.List;
 
 import org.json.JSONObject;
 import org.json.JSONException;
-import org.json.JSONStringer;
-import com.google.gson.Gson;
-import com.google.gson.JsonParser;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonPrimitive;
-
-import java.util.regex.*;
-import android.net.Uri;
-import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     @SuppressLint("SetJavascriptEnabled")
@@ -66,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Code here executes on main thread after user presses button
+                tv1.setText("Sending...");
                 EditText getNumber = findViewById(R.id.phoneNumber);
                 number = getNumber.getText().toString();
                 Log.d(TAG, "onClick: number entered is " + number);
@@ -123,7 +114,7 @@ public class MainActivity extends AppCompatActivity {
                     new Response.Listener<JSONObject>() {
                         @Override
                         public void onResponse(final JSONObject response) {
-                            Log.d(TAG, "startAPI onResponse" + response.toString());
+                            Log.d(TAG, "trumpAPI onResponse" + response.toString());
                             try {
                                 trumpQuote = JsonParse(response, "value");
                             } catch (JSONException e) {
@@ -134,14 +125,13 @@ public class MainActivity extends AppCompatActivity {
                     }, new Response.ErrorListener() {
                 @Override
                 public void onErrorResponse(final VolleyError error) {
-                    Log.w(TAG, "startAPI onErrorResponse" + error.toString());
+                    Log.w(TAG, "trumpAPI onErrorResponse" + error.toString());
                     catAPI();
                 }
             });
             requestQueue.add(jsonObjectRequest);
         } catch (Exception e) {
             e.printStackTrace();
-            Log.d(TAG, "Catch block in startAPICall");
             throw e;
         }
       
@@ -157,7 +147,7 @@ public class MainActivity extends AppCompatActivity {
                     new Response.Listener<JSONObject>() {
                         @Override
                         public void onResponse(final JSONObject response) {
-                            Log.d(TAG, "startAPI onResponse" + response.toString());
+                            Log.d(TAG, "catAPI onResponse" + response.toString());
                             try {
                                 catLink = JsonParse(response, "file");
                             } catch (JSONException e) {
@@ -168,14 +158,13 @@ public class MainActivity extends AppCompatActivity {
                     }, new Response.ErrorListener() {
                 @Override
                 public void onErrorResponse(final VolleyError error) {
-                    Log.w(TAG, "startAPI onErrorResponse" + error.toString());
+                    Log.w(TAG, "catAPI onErrorResponse" + error.toString());
                     sendSMS();
                 }
             });
             requestQueue.add(jsonObjectRequest);
         } catch (Exception e) {
             e.printStackTrace();
-            Log.d(TAG, "Catch block in startAPICall");
             throw e;
         }
 
